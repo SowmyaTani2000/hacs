@@ -80,12 +80,12 @@ abstract public class CourseMenu extends JDialog {
   abstract void showComboxes();
   abstract void ShowLabel();
 
-  void AssignmentAddButton_actionPerformed(ActionEvent e)
+  void assignmentAddButton_actionPerformed(ActionEvent e)
   {
     Hacs.theFacade.AddAssignment(theCourse);
     refresh();
   }
-  void AssignmentViewButton_actionPerformed(ActionEvent e)
+  void assignmentViewButton_actionPerformed(ActionEvent e)
   {
     Assignment theAss=(Assignment)assignmentCombox.getSelectedItem() ;
     Hacs.theFacade.ViewAssignment(theAss);
@@ -93,26 +93,22 @@ abstract public class CourseMenu extends JDialog {
   void refresh()
   {
     assignmentCombox.removeAllItems() ;
-    Iterator Iter=theCourse.assignmentList.iterator() ;
-    while(Iter.hasNext() )
-    {
-      assignmentCombox.addItem(Iter.next() );
+    Iterator<?> Iter=theCourse.assignmentList.iterator() ;
+    while(Iter.hasNext()) {
+      assignmentCombox.addItem(Iter.next());
     }
   }
 
-  void buttonChangeCourse_actionPerformed(ActionEvent e)
-  {
+  void buttonChangeCourse_actionPerformed(ActionEvent e) {
     bLogout=false;
-    hide();
+    setVisible(false);
   }
 
-  void buttonLogout_actionPerformed(ActionEvent e)
-  {
+  void buttonLogout_actionPerformed(ActionEvent e) {
     bLogout=true;
-    hide();
+    setVisible(false);
   }
-  boolean ifLogout()
-  {
+  boolean ifLogout() {
     return bLogout;
   }
 }

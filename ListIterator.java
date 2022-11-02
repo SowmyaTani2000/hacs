@@ -16,12 +16,15 @@ public class ListIterator implements Iterator<Object> {
 	int CurrentNumber = -1;
 
 	public ListIterator() {
+		System.out.println("List iterator is implementd")
 	}
 
 	public ListIterator(ArrayList<Object> list) {
 		theList = list;
 	}
-
+	public ArrayList<Object> getTheList(){
+		return theList;
+	}
 	public boolean hasNext() {
 		if (CurrentNumber >= theList.size() - 1)
 			return false;
@@ -32,13 +35,13 @@ public class ListIterator implements Iterator<Object> {
 	public Object next() {
 		if (hasNext() == true) {
 			CurrentNumber++;
-			return theList.get(CurrentNumber);
+			return theList.get(currentNumber);
 		} else {
 			return null;
 		}
 	}
 
 	public void remove() {
-		theList.remove(CurrentNumber);
+		theList.remove(currentNumber);
 	}
 }
