@@ -50,14 +50,14 @@ public class CourseSelectDlg extends JDialog {
 		oKButton.setBounds(new Rectangle(78, 139, 79, 29));
 		oKButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				oKButton_actionPerformed(e);
+				oKButtonActionPerformed(e);
 			}
 		});
 		buttonLogout.setText("Logout");
 		buttonLogout.setBounds(new Rectangle(224, 140, 73, 31));
 		buttonLogout.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonLogout_actionPerformed(e);
+				buttonLogoutActionPerformed(e);
 			}
 		});
 		this.getContentPane().add(CourseNameCom, null);
@@ -87,7 +87,7 @@ public class CourseSelectDlg extends JDialog {
 		return selectedCourse;
 	}
 
-	void oKButton_actionPerformed(ActionEvent e) {
+	void oKButtonActionPerformed(ActionEvent e) {
 		selectedCourse = (Course) CourseNameCom.getSelectedItem();
 		if (highLevelRadio.isSelected())
 			nCourseLevel = 0; // highlevel course: 0
@@ -100,7 +100,7 @@ public class CourseSelectDlg extends JDialog {
 		return m_bLogout;
 	}
 
-	void buttonLogout_actionPerformed(ActionEvent e) {
+	void buttonLogoutActionPerformed(ActionEvent e) {
 		m_bLogout = true;
 		setVisible(false);
 	}

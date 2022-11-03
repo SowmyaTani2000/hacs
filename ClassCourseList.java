@@ -32,12 +32,10 @@ public class ClassCourseList extends ArrayList<Course> {
 			file.close();
 		} catch (Exception ee) {
 			    ee.printStackTrace();
-		} catch (IOException ee){
-			    ee.printStackTrace();
 		}
 	}
 
-	Course FindCourseByCourseName(String CourseName) {
+	Course findCourseByCourseName(String CourseName) {
 		int nCourseCount = size();
 		for (int i = 0; i < nCourseCount; i++) {
 			    Course theCourse = (Course) get(i);

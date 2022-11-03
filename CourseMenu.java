@@ -21,12 +21,12 @@ abstract public class CourseMenu extends JDialog {
   boolean bLogout=true;
 
   JRadioButton assignmentRadio = new JRadioButton();
-  JComboBox<Object> assignmentCombox = new JComboBox<Object>();
+  JComboBox<Assignment> assignmentCombox = new JComboBox<Assignment>();
   JButton assignmentViewButton = new JButton();
   JButton assignmentAddButton = new JButton();
   JRadioButton optionRadio = new JRadioButton();
   JLabel assignmentContentLable = new JLabel();
-  JComboBox<Object> optionCombo = new JComboBox<Object>();
+  JComboBox optionCombo = new JComboBox();
   JButton optionViewButton = new JButton();
   JButton optionAddButton = new JButton();
   JButton buttonChangeCourse = new JButton();
@@ -58,7 +58,7 @@ abstract public class CourseMenu extends JDialog {
     buttonLogout.setBounds(new Rectangle(267, 215, 73, 37));
     buttonLogout.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        buttonLogout_actionPerformed(e);
+        buttonLogoutActionPerformed(e);
       }
     });
     this.getContentPane().add(buttonChangeCourse, null);
@@ -78,24 +78,23 @@ abstract public class CourseMenu extends JDialog {
   abstract void showViewButtons();
   abstract void showRadios();
   abstract void showComboxes();
-  abstract void ShowLabel();
+  abstract void showLabel();
 
-  void assignmentAddButton_actionPerformed(ActionEvent e)
+  void assignmentAddButtonActionPerformed(ActionEvent e)
   {
-    Hacs.theFacade.AddAssignment(theCourse);
+    Hacs.theFacade.addAssignment(theCourse);
     refresh();
   }
-  void assignmentViewButton_actionPerformed(ActionEvent e)
+  void assignmentViewButtonActionPerformed(ActionEvent e)
   {
     Assignment theAss=(Assignment)assignmentCombox.getSelectedItem() ;
-    Hacs.theFacade.ViewAssignment(theAss);
+    Hacs.theFacade.viewAssignment(theAss);
   }
   void refresh()
   {
     assignmentCombox.removeAllItems() ;
-    Iterator<?> Iter=theCourse.assignmentList.iterator() ;
-    while(Iter.hasNext()) {
-      assignmentCombox.addItem(Iter.next());
+    for (Assignment assignment: theCourse.assignmentList){
+      assignmentCombox.addItem(assignment);
     }
   }
 
@@ -104,7 +103,7 @@ abstract public class CourseMenu extends JDialog {
     setVisible(false);
   }
 
-  void buttonLogout_actionPerformed(ActionEvent e) {
+  void buttonLogoutActionPerformed(ActionEvent e) {
     bLogout=true;
     setVisible(false);
   }

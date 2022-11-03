@@ -12,12 +12,12 @@ import java.util.*;
  */
 
 abstract public class Person {
-	int type = 0; // type=0 : student, type=1 instructor
-	String UserName;
+	public int type = 0; // type=0 : student, type=1 instructor
+	public String UserName;
 	ClassCourseList courseList;
 	CourseMenu theCourseMenu;
 	Course CurrentCourse;
-	Assignment currentAssignment;
+	Assignment CurrentAssignment;
 
 	public Person() {
 
@@ -45,7 +45,7 @@ abstract public class Person {
 
 	public void show() {
 
-		theCourseMenu.show();
+		theCourseMenu.setVisible(true);
 	}
 
 	public boolean ifLogout() {
@@ -56,22 +56,22 @@ abstract public class Person {
 	// show the assignment list
 	public boolean showMenu() {
 		// create a iterator for the assignment list
-//    Iterator theIter=new ListIterator(CurrentCourse.AssList );
-		Iterator theIter = CurrentCourse.assignmentList.iterator();
+        // Iterator theIter=new ListIterator(CurrentCourse.AssList );
+		Iterator<Assignment> theIter = CurrentCourse.assignmentList.iterator();
 		theCourseMenu.theCourse = CurrentCourse;
 		Assignment theAssignment;
 		while (theIter.hasNext()) {
-			theAssignment = (Assignment) theIter.next();
+			theAssignment = theIter.next();
 			theCourseMenu.assignmentCombox.addItem(theAssignment);
 		}
 		return false;
 	}
 
-	public ClassCourseList GetCourseList() {
+	public ClassCourseList getCourseList() {
 		return courseList;
 	}
 
-	public void AddCourse(Course theCourse) {
+	public void addCourse(Course theCourse) {
 		courseList.add(theCourse);
 	}
 }

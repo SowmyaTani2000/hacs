@@ -48,6 +48,14 @@ public class Solution {
 	int getGradeInt() {
 		return theGrade;
 	}
+	public String getTheAuthor(){
+		return this.theAuthor;
+	}
+
+	public void setTheAuthor(String s) {
+		this.theAuthor = s;
+		System.out.println("author set");
+	}
 
 	public void setReported(boolean reported) {
 		this.reported = reported;

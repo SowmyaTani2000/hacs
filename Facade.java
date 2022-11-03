@@ -10,15 +10,17 @@ import java.io.*;
  * @author mjfindler
  * @version 2.0
  * 
- *          Update to Jave 8
+ *          Update to Java 8
  */
 
 public class Facade {
-	public int userType;
+	public int UserType;
 	private Course theSelecteCourse = null;
 	private int nCourseLevel = 0;
-	ClassCourseList theCourseList;
-	Person thePerson;
+	public ClassCourseList theCourseList;
+	public Person thePerson;
+	public static final int STUDENT_USER_TYPE=0;
+	public static final int INSTRUCTOR_USER_TYPE=0;
 
 	public Facade() {
 		System.out.println("Facade is Implemented");
@@ -28,8 +30,8 @@ public class Facade {
 		Login login = new Login();
 		login.setModal(true);
 		login.setVisible(true);
-		userinfoItem.strUserName = login.getUserName();
-		userinfoItem.UserType = login.getUserType();
+		userinfoItem.strUserName = login.GetUserName();
+		userinfoItem.UserType = login.GetUserType();
 		return login.isExit();
 	}
 
@@ -65,7 +67,7 @@ public class Facade {
 	 */
 	void viewAssignment(Assignment theAssignment) {
 		AssignmentMenu theAssignmentMenu;
-		if (thePerson.type == 0)/// student
+		if (thePerson.type == STUDENT_USER_TYPE)/// student
 		{
 			theAssignmentMenu = new StudentAssignmentMenu();
 		} else {
@@ -117,22 +119,19 @@ public class Facade {
 		{
 			thePerson = new Instructor();
 		}
-		thePerson.userName = userinfoitem.strUserName;
+		thePerson.UserName = userinfoitem.strUserName;
 	}
 
 	/*
-	 * create a course list and intitialize it with the file CourseInfo.txt
+	 * create a course list and initialize it with the file CourseInfo.txt
 	 */
-	void createCourseList() {
+	public void createCourseList() {
 		theCourseList = new ClassCourseList();
 		theCourseList.InitializeFromFile("CourseInfo.txt");
 	}
-    public ClassCourseList getCourseList(){
-		return theCourseList;
-	}
 	/*
 	 * call this function after create user, create courselist read the
-	 * UserCourse.txt file match the coursename with theCouresList attach the
+	 * UserCourse.txt file match the coursename with theCoureList attach the
 	 * Matched course object to the new create user Facade.thePerson.CourseList
 	 */
 	void attachCourseToUser() {
@@ -144,7 +143,7 @@ public class Facade {
 			{
 				strUserName = getUserName(aline);
 				strCourseName = getCourseName(aline);
-				if (strUserName.compareTo(thePerson.userName) == 0) /// the UserName mateches
+				if (strUserName.compareTo(thePerson.UserName) == 0) /// the UserName mateches
 				{
 					theSelecteCourse = findCourseByCourseName(strCourseName);
 					if (theSelecteCourse != null) /// Find the Course in the CourseList--->attach
@@ -183,7 +182,7 @@ public class Facade {
 	public boolean selectCourse() {
 		CourseSelectDlg theDlg = new CourseSelectDlg();
 		theSelecteCourse = theDlg.showDlg(thePerson.courseList);
-		thePerson.currentCourse = theSelecteCourse;
+		thePerson.CurrentCourse = theSelecteCourse;
 		nCourseLevel = theDlg.nCourseLevel;
 		return theDlg.isLogout();
 	}
@@ -195,7 +194,7 @@ public class Facade {
 	 */
 
 	public boolean courseOperation() {
-		thePerson.createCourseMenu(theSelecteCourse, nCourseLevel);
+		thePerson.CreateCourseMenu(theSelecteCourse, nCourseLevel);
 		return thePerson.showMenu();//// 0: logout 1 select an other course
 	}
 

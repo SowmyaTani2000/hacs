@@ -40,7 +40,7 @@ public class SolutionIterator implements Iterator<Solution> {
       return true;
 //    throw new java.lang.UnsupportedOperationException("Method hasNext() not yet implemented.");
   }
-  public Object next()
+  public Solution next()
   {
     /**@todo: Implement this java.util.Iterator method*/
     if (hasNext()==true)
