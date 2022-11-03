@@ -14,7 +14,8 @@ import java.util.ArrayList;
  */
 
 public class SolutionList extends ArrayList<Solution> {
-
+       private static final long serialVerUID=1L;
 	public SolutionList() {
+		System.out.println("Solution list is implemented");
 	}
 }

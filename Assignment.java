@@ -23,9 +23,11 @@ public class Assignment {
   boolean accepted=false;
 
   public boolean isAccepted(){
+
     return accepted;
   }
   public Assignment() {
+
     System.out.println("Assignment is implemented");
   }
   public void setAssignmnetName(String assignmentName){
@@ -36,6 +38,7 @@ public class Assignment {
   }
 
   public void setAssSpec(String theSpec){
+
     this.assSpec = theSpec;
   }
 
@@ -61,6 +64,7 @@ public class Assignment {
   }
 
   public void submitSolution(){
+
     System.out.println("submit the solution implemented");
   }
 
@@ -76,6 +80,7 @@ public class Assignment {
   }
 
   public Solution getSugSolution(){
+
     return SuggestSolution;
   }
 

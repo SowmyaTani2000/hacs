@@ -16,7 +16,7 @@ public class ListIterator implements Iterator<Object> {
 	int CurrentNumber = -1;
 
 	public ListIterator() {
-		System.out.println("List iterator is implementd")
+		System.out.println("List iterator is implementd");
 	}
 
 	public ListIterator(ArrayList<Object> list) {

@@ -118,7 +118,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		if (boolSubmit == true) {
 			if (theSolution == null) {
 				theSolution = new Solution();
-				theAssignment.AddSolution(theSolution);
+				theAssignment.addSolution(theSolution);
 			}
 			theSolution.theAuthor = thePerson.UserName;
 			theSolution.SolutionFileName = tbSolution.getText();
@@ -128,12 +128,12 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
 	void bSubmit_actionPerformed(ActionEvent e) {
 		boolSubmit = true;
-		hide();
+		setVisible(true);
 	}
 
 	void bCancel_actionPerformed(ActionEvent e) {
 		boolSubmit = false;
-		hide();
+		setVisible(false);
 	}
 
 }

@@ -11,23 +11,21 @@ import java.util.Iterator;
  * @version 1.0
  */
 
-public class SolutionIterator implements Iterator
-{
+public class SolutionIterator implements Iterator<Solution> {
   SolutionList solutionlist;
 
   ///  CurrentSolutionNumber: point to the location before the first element
   int CurrentSolutionNumber=-1;
 
-  public SolutionIterator()
-  {
+  public SolutionIterator() {
+    System.out.println("Solution iterator is implemented");
   }
-  public SolutionIterator(SolutionList thesolutionlist)
-  {
+  public SolutionIterator(SolutionList thesolutionlist) {
     solutionlist=thesolutionlist;
-    MoveToHead();
+    moveToHead();
   }
 
-  public void MoveToHead()
+  public void moveToHead()
   {
   ///  CurrentSolutionNumber: point to the location before the first element
     CurrentSolutionNumber=-1;
@@ -58,14 +56,11 @@ public class SolutionIterator implements Iterator
   }
 
   /// get the next Solution that fits the Username;
-  public Object next(String UserName)
-  {
+  public Object next(String UserName) {
     Solution theSolution;
     theSolution=(Solution)next();
-    while(theSolution!=null)
-    {
-      if(UserName.compareTo(theSolution.theAuthor)==0)
-      {
+    while(theSolution!=null) {
+      if(UserName.compareTo(theSolution.theAuthor)==0) {
         return theSolution;
       }
       theSolution=(Solution)next();
