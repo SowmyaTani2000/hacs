@@ -45,12 +45,11 @@ public class Assignment {
     Solution mySolution = new Solution();
     return mySolution;
   }
-
-  ////add the theSolution to the Solutionlist
   public void addSolution(Solution theSolution) {
     theSolutionList.add(theSolution);
   }
   public Solution getSuggestedSolution() { return SuggestSolution; }
+
   public void submitSolution(){
 
     System.out.println("submit the solution implemented");
@@ -63,8 +62,6 @@ public class Assignment {
     return list;
   }
 
-  /* return the solution of the given name
-  */
   public Solution getSolution(String studentname) {
     SolutionIterator Iterator=getSolutionIterator();
     return (Solution)Iterator.next(studentname);
@@ -89,6 +86,5 @@ public class Assignment {
 
   public void accept(NodeVisitor visitor) {
     visitor.visitAssignment(this);
-    accepted=true;
   }
 }

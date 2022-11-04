@@ -15,8 +15,7 @@ import java.util.Iterator;
  * @version 1.0
  */
 
-abstract public class CourseMenu extends JDialog {
-  private static final long serialVerUID=1L;
+  public abstract class CourseMenu extends JDialog {
   Course theCourse;
   boolean bLogout=true;
 
@@ -26,7 +25,7 @@ abstract public class CourseMenu extends JDialog {
   JButton assignmentAddButton = new JButton();
   JRadioButton optionRadio = new JRadioButton();
   JLabel assignmentContentLable = new JLabel();
-  JComboBox optionCombo = new JComboBox();
+  JComboBox<Assignment> optionCombo = new JComboBox<Assignment>();
   JButton optionViewButton = new JButton();
   JButton optionAddButton = new JButton();
   JButton buttonChangeCourse = new JButton();
@@ -72,7 +71,6 @@ abstract public class CourseMenu extends JDialog {
   /* when the add button is pressed, call ViewAssignment
   function of facade, after that refresh window
   */
-
   abstract void showMenu(Course theCourse);
   abstract void showAddButtons();
   abstract void showViewButtons();

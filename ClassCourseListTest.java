@@ -9,14 +9,14 @@ class ClassCourseListTest {
     @Test
     void initializeFromFile() {
         int expected =6;
-        ClassCourseList.InitializeFromFile("UserCourse.txt");
+        ClassCourseList.initializeFromFile("UserCourse.txt");
         assertEquals(expected, ClassCourseList.size());
     }
 
     @Test
     void findCourseByCourseName() {
         String crseName="SER 515";
-        ClassCourseList.InitializeFromFile("UserCourse.txt");
-        assertEquals(crseName, ClassCourseList.findCourseByCourseName(crseName));
+        ClassCourseList.initializeFromFile("UserCourse.txt");
+        assertEquals(crseName, ClassCourseList.findCourseByCourseName(crseName).toString());
     }
 }

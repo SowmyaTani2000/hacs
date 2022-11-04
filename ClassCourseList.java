@@ -13,14 +13,12 @@ import java.io.*;
  */
 
 public class ClassCourseList extends ArrayList<Course> {
-	private static final long serialverUID=1L;
 
 	public ClassCourseList() {
 		System.out.println("class Course list is implemented");
 	}
 
-	//// initialize the list by reading from the file.
-	void InitializeFromFile(String theFileName) {
+	void initializeFromFile(String theFileName) {
 		try {
 			BufferedReader file;
 			String strCourseName = null;
@@ -29,7 +27,6 @@ public class ClassCourseList extends ArrayList<Course> {
 				    Course theCourse = new Course(strCourseName, 0);
 				    add(theCourse);
 			}
-			file.close();
 		} catch (Exception ee) {
 			    ee.printStackTrace();
 		}

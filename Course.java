@@ -28,10 +28,7 @@ public class Course {
 
   public Course(String strCourse, int theLevel) {
     this.CourseName = strCourse;
-
-   //0 HighLeve presentation    1  LowLevel Experiment
     this.CourseLevel = theLevel;
-   // this.AssList = NULL;
     this.NumOfAss = 0;
   }
   
@@ -48,7 +45,6 @@ public class Course {
   void accept(NodeVisitor visitor) {
 
     visitor.visitCourse(this);
-    accepted=true;
   }
 
 }

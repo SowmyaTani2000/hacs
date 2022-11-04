@@ -13,9 +13,10 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class LowLevelCourseMenu extends CourseMenu {
-	private static final long serialVerUID= 1L;
+
 
 	public LowLevelCourseMenu() {
+
 		System.out.println("Lower Level course menu is implemented");
 	}
 

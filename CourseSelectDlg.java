@@ -12,15 +12,18 @@ import java.awt.event.*;
  */
 
 public class CourseSelectDlg extends JDialog {
-	// 0 HighLevel presentation 1 LowLevel Experiment
+	public static int HIGH_LEVEL_COURSE=0;
+	public static int LOW_LEVEL_COURSE=1;
+
 	ClassCourseList theCourseList;
 	Course selectedCourse;
 	int nCourseLevel = 0;
 	boolean m_bLogout = false;
 	JComboBox<Course> CourseNameCom = new JComboBox<Course>();
-	JRadioButton highLevelRadio = new JRadioButton();
-	JRadioButton lowLevelRadio = new JRadioButton();
+	JRadioButton HighLevelRadio = new JRadioButton();
+	JRadioButton LowLevelRadio = new JRadioButton();
 	JLabel jLabel1 = new JLabel();
+
 	JButton oKButton = new JButton();
 	ButtonGroup buttonGroup1 = new ButtonGroup();
 	JButton buttonLogout = new JButton();
@@ -38,12 +41,12 @@ public class CourseSelectDlg extends JDialog {
 	private void jbInit() throws Exception {
 		this.getContentPane().setLayout(null);
 		CourseNameCom.setBounds(new Rectangle(155, 41, 203, 22));
-		highLevelRadio.setText("HighLevel");
-		highLevelRadio.setBounds(new Rectangle(50, 87, 103, 26));
-		lowLevelRadio.setToolTipText("");
-		lowLevelRadio.setSelected(true);
-		lowLevelRadio.setText("LowLevel");
-		lowLevelRadio.setBounds(new Rectangle(236, 88, 103, 26));
+		HighLevelRadio.setText("HighLevel");
+		HighLevelRadio.setBounds(new Rectangle(50, 87, 103, 26));
+		LowLevelRadio.setToolTipText("");
+		LowLevelRadio.setSelected(true);
+		LowLevelRadio.setText("LowLevel");
+		LowLevelRadio.setBounds(new Rectangle(236, 88, 103, 26));
 		jLabel1.setText("CourseName");
 		jLabel1.setBounds(new Rectangle(39, 44, 85, 18));
 		oKButton.setText("OK");
@@ -62,24 +65,18 @@ public class CourseSelectDlg extends JDialog {
 		});
 		this.getContentPane().add(CourseNameCom, null);
 		this.getContentPane().add(jLabel1, null);
-		this.getContentPane().add(highLevelRadio, null);
-		this.getContentPane().add(lowLevelRadio, null);
+		this.getContentPane().add(HighLevelRadio, null);
+		this.getContentPane().add(LowLevelRadio, null);
 		this.getContentPane().add(oKButton, null);
 		this.getContentPane().add(buttonLogout, null);
-		buttonGroup1.add(highLevelRadio);
-		buttonGroup1.add(lowLevelRadio);
+		buttonGroup1.add(HighLevelRadio);
+		buttonGroup1.add(LowLevelRadio);
 	}
-
-	/*
-	 * show the theCourseList in a combox Show the Course type selection button
-	 * return the pointer pointing to the Course object return the Course Type
-	 */
-
 	public Course showDlg(ClassCourseList courseList) {
 		theCourseList = courseList;
 		CourseIterator theIterator = new CourseIterator(theCourseList);
 		Course theCourse;
-		while ((theCourse = (Course) theIterator.next()) != null) /// end of the list
+		while ((theCourse = (Course) theIterator.next()) != null)
 		{
 			CourseNameCom.addItem(theCourse);
 		}
@@ -89,10 +86,10 @@ public class CourseSelectDlg extends JDialog {
 
 	void oKButtonActionPerformed(ActionEvent e) {
 		selectedCourse = (Course) CourseNameCom.getSelectedItem();
-		if (highLevelRadio.isSelected())
-			nCourseLevel = 0; // highlevel course: 0
+		if (HighLevelRadio.isSelected())
+			nCourseLevel = HIGH_LEVEL_COURSE=0;
 		else
-			nCourseLevel = 1; // lowlevel course: 1
+			nCourseLevel = LOW_LEVEL_COURSE=1;
 		setVisible(false);
 	}
 

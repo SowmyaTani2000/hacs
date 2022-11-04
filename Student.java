@@ -16,7 +16,6 @@ public class Student extends Person {
 	}
 
 	public CourseMenu CreateCourseMenu(Course theCourse, int theLevel) {
-
 		if (theLevel == 0)
 		{
 			theCourseMenu = new HighLevelCourseMenu();
@@ -26,8 +25,6 @@ public class Student extends Person {
 		}
 		return theCourseMenu;
 	}
-
-	@Override
 	public boolean showMenu() {
 		super.showMenu();
 		showViewButtons();

@@ -9,7 +9,7 @@ package hacs;
 
 public class Instructor extends Person {
 	public Instructor() {
-		type = 1;// type=1 :instructor
+		type = 1;
 	}
 
 	public CourseMenu createCourseMenu(Course theCourse, int theLevel) {

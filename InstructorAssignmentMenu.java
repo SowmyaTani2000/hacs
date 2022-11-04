@@ -113,7 +113,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 
   void buttonGradeActionPerformed(ActionEvent e)
   {
-    Solution theSolution=(Solution)comboBoxSolutionList.getSelectedItem() ;
+    Solution theSolution=(Solution)CombSolutionList.getSelectedItem() ;
     if (theSolution==null)
        return;
     SolutionGradingDlg dlg=new SolutionGradingDlg();
@@ -136,7 +136,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     SolutionIterator SolIter=new SolutionIterator(theAssignment.theSolutionList );
     while(SolIter.hasNext()) {
       theSolution=(Solution)SolIter.next();
-      comboBoxSolutionList.addItem(theSolution);
+      CombSolutionList.addItem(theSolution);
     }
   }
 }

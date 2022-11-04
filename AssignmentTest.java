@@ -72,7 +72,7 @@ class AssignmentTest {
     @Test
     void testToString() {
         String input =" Hacs Assignment";
-        Aa.assnName(input);
+        Aa.setAssSpec(input);
         assertEquals(input,Aa.toString());
     }
 
@@ -84,9 +84,4 @@ class AssignmentTest {
         assertEquals(Df.format(Df),Aa.getDueDateString());
     }
 
-    @Test
-    void accept() {
-        Aa.accept(new ReminderVisitor());
-        assertTrue(Aa.isAccepted());
-    }
 }

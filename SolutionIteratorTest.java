@@ -35,7 +35,7 @@ class SolutionIteratorTest {
     @Test
     void testNext() {
         Sl.add(Ss);
-        SolutionIterator Si=new SolutionIterator(Ss);
+        SolutionIterator Si=new SolutionIterator(Sl);
         assertNotNull(Si.next());
     }
 
@@ -47,6 +47,6 @@ class SolutionIteratorTest {
         SolutionIterator Si=new SolutionIterator(Sl);
         Si.next();
         Si.remove();
-        assertEquals(expected, Si.Sl.size());
+        assertEquals(expected, Sl.size());
     }
 }

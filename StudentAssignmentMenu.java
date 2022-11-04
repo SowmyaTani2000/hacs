@@ -14,7 +14,6 @@ import java.util.*;
 
 public class StudentAssignmentMenu extends AssignmentMenu {
 
-////  class AssignmentMenu
 	private boolean boolSubmit = false;
 	private Solution theSolution;
 	private Assignment theAssignment;
@@ -32,6 +31,11 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	JLabel jLabel5 = new JLabel();
 	JLabel jLabel6 = new JLabel();
 	JLabel jLabel7 = new JLabel();
+
+	@Override
+	void showMenu(Assignment ass, Person per) {
+		System.out.println("show the menu");
+	}
 
 	public StudentAssignmentMenu() {
 		try {

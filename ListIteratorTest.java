@@ -26,16 +26,17 @@ class ListIteratorTest {
         ArrayList<Object>testList=new ArrayList<>();
         testList.add(1);
         ListIterator Lr= new ListIterator(testList);
-        assertEquals( Lr.hasNext());
+        assertTrue( Lr.hasNext());
         }
     }
 
     @Test
-    void next() {
+    Object next() {
         ArrayList<Object>testList=new ArrayList<>();
         testList.add(1);
         ListIteratorTest Lr= new ListIteratorTest();
         assertNotNull(Lr.next());
+
     }
 
     @Test

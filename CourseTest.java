@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CourseTest {
-    String strCrse= "SER 515-FSE";
+    String strCrs = "SER 515-FSE";
     int theLevel=0;
     Assignment Aa=new Assignment();
-    Course Cr=new Course(strCrse,theLevel);
+    Course Cr=new Course(strCrs,theLevel);
 
 
     @Test
@@ -21,7 +21,7 @@ class CourseTest {
 
     @Test
     void testToString() {
-        assertEquals(strCrse,Cr.toString());
+        assertEquals(strCrs,Cr.toString());
     }
 
     @Test

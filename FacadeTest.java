@@ -12,7 +12,8 @@ class FacadeTest {
     void submitSolution() {
         int expected=1;
         Assignment Aa= new Assignment();
-        fa.submitSolution(Aa, fa);
+        Solution Ss=new Solution();
+        fa.submitSolution(Aa, Ss);
         assertEquals(expected, Aa.addSolution().size());
     }
 
@@ -20,7 +21,7 @@ class FacadeTest {
     void createUser() {
         UserInfoItem usr=new UserInfoItem();
         usr.UserType=UserInfoItem.USER_TYPE.Student;
-        fa.createUser(UserInfoItem);
+        fa.createUser(usr);
         assertTrue(fa.thePerson instanceof Student);
 
     }

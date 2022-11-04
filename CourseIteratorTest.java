@@ -5,15 +5,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CourseIteratorTest {
-    CourseIterator CrseItr= new CourseIterator();
-    ClassCourseList CrseList=new ClassCourseList();
-
 
     @Test
     void hasNext() {
         Course Cr=new Course("Ser 515-FSE",1);
         ClassCourseList.add(Cr);
-        CourseIterator CrseItr=new CourseIterator(ClassCourseList());
+        CourseIterator CrseItr=new CourseIterator(new ClassCourseList());
         assertTrue(CrseItr.hasNext());
     }
 
@@ -22,10 +19,9 @@ class CourseIteratorTest {
     void next() {
         Course Cr=new Course("Ser 515-FSE",1);
         ClassCourseList.add(Cr);
-        CourseIterator CrseItr=new CourseIterator(ClassCourseList());
+        CourseIterator CrseItr=new CourseIterator(new ClassCourseList());
         assertNotNull(CrseItr.next());
     }
-
 
     @Test
     void remove() {
@@ -33,14 +29,10 @@ class CourseIteratorTest {
         Course Cr=new Course("SER 515-FSE",1);
         ClassCourseList.add(Cr);
         CourseIterator CrseItr= new CourseIterator(ClassCourseList);
-        CrItr.next();
-        CrItr.remove();
+        CrseItr.next();
+        CrseItr.remove();
         assertEquals(expected, CrseItr.getTheCourseList().size());
-
-
     }
-
-
     @Test
     void testNext() {
         Course Cr=new Course("Ser 515-FSE",1);

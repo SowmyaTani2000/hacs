@@ -27,10 +27,7 @@ public class CourseIterator implements Iterator {
 
   public boolean hasNext()
   {
-    if (CurrentCourseNumber>=theCourseList.size()-1)
-      return false;
-    else
-      return true;
+    return CurrentCourseNumber < theCourseList.size() - 1;
   }
 
   public Object next()
@@ -49,8 +46,6 @@ public class CourseIterator implements Iterator {
   {
     theCourseList.remove(CurrentCourseNumber);
   }
-
-// the next Course that fits the given CourseName
   public Object next(String CourseName)
   {
     Course theCourse;

@@ -34,17 +34,6 @@ public class Facade {
 		userinfoItem.UserType = login.GetUserType();
 		return login.isExit();
 	}
-
-/////////////////////////
-//functions for CourseMenu
-	/*
-	 * When click the add button of the CourseMenu , call this function this
-	 * function will new an assignment fill the required infomation this function
-	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
-	 * type of the user it will not update the course menu. the coursemenu need to
-	 * refreshed outside the function
-	 */
-
 	void addAssignment(Course theCourse) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == 0)/// student
@@ -57,14 +46,6 @@ public class Facade {
 		theAssignmentMenu.showMenu(theAssignment, thePerson);
 		theCourse.addAssignment(theAssignment);
 	}
-
-	/*
-	 * When click the view button of the CourseMenu , call this function and pass
-	 * the pointer of the Assignment and the person pointer to this function this
-	 * function will new an assignment fill the required infomation this function
-	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
-	 * type of the user
-	 */
 	void viewAssignment(Assignment theAssignment) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == STUDENT_USER_TYPE)/// student
@@ -76,12 +57,6 @@ public class Facade {
 
 		theAssignmentMenu.showMenu(theAssignment, thePerson);
 	}
-
-//functions for InstructorAssignmentMenu
-	/*
-	 * this function will grade the give Solution: theSolution this function calls
-	 */
-
 	void gradeSolution(Solution theSolution) {
 		SolutionMenu solutionMenu = new SolutionMenu();
 		solutionMenu.showMenu(theSolution);
@@ -91,21 +66,18 @@ public class Facade {
 		Solution theSolution;
 		SolutionIterator theSolutionIterator;
 		theSolutionIterator = theAssignment.getSolutionIterator();
-		theSolution = (Solution) theSolutionIterator.next();
+		theSolution = theSolutionIterator.next();
 		while (theSolution != null) {
 			theSolution.setReported(true);
 			theSolution = (Solution) theSolutionIterator.next();
 		}
 	}
-////////////////////
 
-//functions for StudentAssignmentMenu
 	void submitSolution(Assignment theAssignment, Solution theSolution) {
 
 		theAssignment.addSolution(theSolution);
 	}
 
-//////////
 	void remind() {
 		Reminder theReminder = new Reminder();
 		theReminder.showReminder(thePerson.getCourseList());
@@ -115,7 +87,7 @@ public class Facade {
 		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Student) /// student
 		{
 			thePerson = new Student();
-		} else /// instructor
+		} else
 		{
 			thePerson = new Instructor();
 		}
@@ -127,7 +99,7 @@ public class Facade {
 	 */
 	public void createCourseList() {
 		theCourseList = new ClassCourseList();
-		theCourseList.InitializeFromFile("CourseInfo.txt");
+		theCourseList.initializeFromFile("CourseInfo.txt");
 	}
 	/*
 	 * call this function after create user, create courselist read the

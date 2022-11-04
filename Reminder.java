@@ -14,7 +14,7 @@ import java.util.*;
  */
 
 public class Reminder extends JDialog {
-	private static final long serialVerUID=1L;
+
 	ClassCourseList courseList;
 	JLabel jLabel1 = new JLabel();
 	JLabel jLabel2 = new JLabel();
