@@ -14,30 +14,26 @@ import java.text.DateFormat;
 
 public class Assignment {
 
-  public String assnName;
-  public Date dueDate=new Date();
-  public String assSpec;
+  public String AssName;
+  public Date DueDate =new Date();
+  public String AssSpec;
   public SolutionList theSolutionList=new SolutionList();
   public Solution SuggestSolution=new Solution();
-  boolean accepted=false;
 
-  public boolean isAccepted(){
-    return accepted;
-  }
   public Assignment() {
 
     System.out.println("Assignment is implemented");
   }
 
-  public void setDueDate(Date theDueDate) { this.dueDate = theDueDate; }
-  public void setAssSpec(String theSpec){ this.assSpec = theSpec; }
+  public void setDueDate(Date theDueDate) { this.DueDate = theDueDate; }
+  public void setAssSpec(String theSpec){ this.AssSpec = theSpec; }
   public String getAssSpec(){
-    return this.assSpec;
+    return this.AssSpec;
   }
   public boolean IsOverDue(){
     Date today;
     today = new Date();
-    if (today.after(this.dueDate)) {
+    if (today.after(this.DueDate)) {
       return true;
     }
     else {
@@ -83,12 +79,12 @@ public class Assignment {
 
 
   public String toString() {
-    return assnName;
+    return AssName;
   }
 
   public String getDueDateString() {
     DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
-    return  dateFormat.format(dueDate);
+    return  dateFormat.format(DueDate);
   }
 
   public void accept(NodeVisitor visitor) {

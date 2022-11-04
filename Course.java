@@ -12,8 +12,8 @@ import java.util.*;
  * @author mjfindler
  * @version 2.0 
  * Update to Java 8
- */
 
+ */
 public class Course {
   String CourseName;
   public ArrayList<Assignment> assignmentList=new ArrayList<Assignment>();

@@ -3,7 +3,6 @@ package hacs;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.text.DateFormat;
 
 /**
@@ -92,9 +91,9 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
   public void showMenu(Assignment assignment, Person person) {
     theAssignment=assignment;
     Solution theSolution;
-    tbAssignmentName.setText(theAssignment.assnName );
+    tbAssignmentName.setText(theAssignment.AssName);
     DateFormat theDateFormat=DateFormat.getDateInstance(DateFormat.SHORT );
-    tbDueDate.setText(theDateFormat.format(theAssignment.dueDate));
+    tbDueDate.setText(theDateFormat.format(theAssignment.DueDate));
     tbSuggestedSolution.setText(theAssignment.SuggestSolution.SolutionFileName );
     refreshSolutionList();
     setVisible(true);
@@ -102,11 +101,11 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 
   void buttonCloseActionPerformed(ActionEvent e)
   {
-    theAssignment.assnName = tbAssignmentName.getText() ;
+    theAssignment.AssName = tbAssignmentName.getText() ;
     DateFormat tempDateFormat=DateFormat.getDateInstance(DateFormat.SHORT );
     try
     {
-      theAssignment.dueDate=tempDateFormat.parse(tbDueDate.getText() );
+      theAssignment.DueDate =tempDateFormat.parse(tbDueDate.getText() );
     }catch (Exception ee){};
     theAssignment.SuggestSolution.SolutionFileName =tbSuggestedSolution.getText() ;
     setVisible(false);

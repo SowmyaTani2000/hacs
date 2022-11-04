@@ -35,13 +35,13 @@ public class ListIterator implements Iterator<Object> {
 	public Object next() {
 		if (hasNext() == true) {
 			CurrentNumber++;
-			return theList.get(currentNumber);
+			return theList.get(CurrentNumber);
 		} else {
 			return null;
 		}
 	}
 
 	public void remove() {
-		theList.remove(currentNumber);
+		theList.remove(CurrentNumber);
 	}
 }
