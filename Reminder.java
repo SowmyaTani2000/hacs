@@ -14,7 +14,8 @@ import java.util.*;
  */
 
 public class Reminder extends JDialog {
-	ClassCourseList CourseList;
+
+	ClassCourseList courseList;
 	JLabel jLabel1 = new JLabel();
 	JLabel jLabel2 = new JLabel();
 	java.awt.List listUpcoming = new java.awt.List();
@@ -43,7 +44,7 @@ public class Reminder extends JDialog {
 		buttonOK.setBounds(new Rectangle(149, 308, 67, 37));
 		buttonOK.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonOK_actionPerformed(e);
+				buttonOKActionPerformed(e);
 			}
 		});
 		this.getContentPane().add(jLabel1, null);
@@ -57,10 +58,10 @@ public class Reminder extends JDialog {
 		Assignment assignment;
 		ReminderVisitor visitor = new ReminderVisitor(this);
 		visitor.visitFacade(Hacs.theFacade);
-		show();
+		setVisible(true);
 	}
 
-	void buttonOK_actionPerformed(ActionEvent e) {
-		hide();
+	void buttonOKActionPerformed(ActionEvent e) {
+		setVisible(false);
 	}
 }

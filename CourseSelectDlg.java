@@ -12,16 +12,19 @@ import java.awt.event.*;
  */
 
 public class CourseSelectDlg extends JDialog {
-	// 0 HighLevel presentation 1 LowLevel Experiment
+	public static int HIGH_LEVEL_COURSE=0;
+	public static int LOW_LEVEL_COURSE=1;
+
 	ClassCourseList theCourseList;
-	Course SelectedCourse;
+	Course selectedCourse;
 	int nCourseLevel = 0;
 	boolean m_bLogout = false;
-	JComboBox CourseNameCom = new JComboBox();
+	JComboBox<Course> CourseNameCom = new JComboBox<Course>();
 	JRadioButton HighLevelRadio = new JRadioButton();
 	JRadioButton LowLevelRadio = new JRadioButton();
 	JLabel jLabel1 = new JLabel();
-	JButton OKButton = new JButton();
+
+	JButton oKButton = new JButton();
 	ButtonGroup buttonGroup1 = new ButtonGroup();
 	JButton buttonLogout = new JButton();
 
@@ -46,63 +49,56 @@ public class CourseSelectDlg extends JDialog {
 		LowLevelRadio.setBounds(new Rectangle(236, 88, 103, 26));
 		jLabel1.setText("CourseName");
 		jLabel1.setBounds(new Rectangle(39, 44, 85, 18));
-		OKButton.setText("OK");
-		OKButton.setBounds(new Rectangle(78, 139, 79, 29));
-		OKButton.addActionListener(new java.awt.event.ActionListener() {
+		oKButton.setText("OK");
+		oKButton.setBounds(new Rectangle(78, 139, 79, 29));
+		oKButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				OKButton_actionPerformed(e);
+				oKButtonActionPerformed(e);
 			}
 		});
 		buttonLogout.setText("Logout");
 		buttonLogout.setBounds(new Rectangle(224, 140, 73, 31));
 		buttonLogout.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonLogout_actionPerformed(e);
+				buttonLogoutActionPerformed(e);
 			}
 		});
 		this.getContentPane().add(CourseNameCom, null);
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(HighLevelRadio, null);
 		this.getContentPane().add(LowLevelRadio, null);
-		this.getContentPane().add(OKButton, null);
+		this.getContentPane().add(oKButton, null);
 		this.getContentPane().add(buttonLogout, null);
 		buttonGroup1.add(HighLevelRadio);
 		buttonGroup1.add(LowLevelRadio);
 	}
-
-	/*
-	 * show the theCourseList in a combox Show the Course type selection button
-	 * return the pointer pointing to the Course object return the Course Type
-	 */
-
-	public Course ShowDlg(ClassCourseList courseList) {
-
+	public Course showDlg(ClassCourseList courseList) {
 		theCourseList = courseList;
 		CourseIterator theIterator = new CourseIterator(theCourseList);
 		Course theCourse;
-		while ((theCourse = (Course) theIterator.next()) != null) /// end of the list
+		while ((theCourse = (Course) theIterator.next()) != null)
 		{
 			CourseNameCom.addItem(theCourse);
 		}
-		show();
-		return SelectedCourse;
+		setVisible(true);
+		return selectedCourse;
 	}
 
-	void OKButton_actionPerformed(ActionEvent e) {
-		SelectedCourse = (Course) CourseNameCom.getSelectedItem();
+	void oKButtonActionPerformed(ActionEvent e) {
+		selectedCourse = (Course) CourseNameCom.getSelectedItem();
 		if (HighLevelRadio.isSelected())
-			nCourseLevel = 0; // highlevel course: 0
+			nCourseLevel = HIGH_LEVEL_COURSE=0;
 		else
-			nCourseLevel = 1; // lowlevel course: 1
-		hide();
+			nCourseLevel = LOW_LEVEL_COURSE=1;
+		setVisible(false);
 	}
 
 	public boolean isLogout() {
 		return m_bLogout;
 	}
 
-	void buttonLogout_actionPerformed(ActionEvent e) {
+	void buttonLogoutActionPerformed(ActionEvent e) {
 		m_bLogout = true;
-		hide();
+		setVisible(false);
 	}
 }

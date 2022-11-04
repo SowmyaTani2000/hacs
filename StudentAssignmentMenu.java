@@ -3,7 +3,6 @@ package hacs;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.util.*;
 
 /**
@@ -15,7 +14,6 @@ import java.util.*;
 
 public class StudentAssignmentMenu extends AssignmentMenu {
 
-////  class AssignmentMenu
 	private boolean boolSubmit = false;
 	private Solution theSolution;
 	private Assignment theAssignment;
@@ -33,6 +31,11 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	JLabel jLabel5 = new JLabel();
 	JLabel jLabel6 = new JLabel();
 	JLabel jLabel7 = new JLabel();
+
+	@Override
+	void showMenu(Assignment ass, Person per) {
+		System.out.println("show the menu");
+	}
 
 	public StudentAssignmentMenu() {
 		try {
@@ -109,8 +112,8 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
 		}
 
-		lAssignmentName.setText(theAssignment.assnName);
-		lDueDate.setText(theAssignment.dueDate.toString());
+		lAssignmentName.setText(theAssignment.AssName);
+		lDueDate.setText(theAssignment.DueDate.toString());
 		lSuggestedSolution.setText(theAssignment.SuggestSolution.SolutionFileName);
 
 		show();
@@ -118,7 +121,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		if (boolSubmit == true) {
 			if (theSolution == null) {
 				theSolution = new Solution();
-				theAssignment.AddSolution(theSolution);
+				theAssignment.addSolution(theSolution);
 			}
 			theSolution.theAuthor = thePerson.UserName;
 			theSolution.SolutionFileName = tbSolution.getText();
@@ -128,12 +131,12 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
 	void bSubmit_actionPerformed(ActionEvent e) {
 		boolSubmit = true;
-		hide();
+		setVisible(true);
 	}
 
 	void bCancel_actionPerformed(ActionEvent e) {
 		boolSubmit = false;
-		hide();
+		setVisible(false);
 	}
 
 }

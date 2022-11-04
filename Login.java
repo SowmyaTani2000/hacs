@@ -31,7 +31,7 @@ public class Login extends JDialog {
 	JRadioButton StudentRadio = new JRadioButton();
 	JRadioButton InstructorRadio = new JRadioButton();
 	ButtonGroup buttonGroup1 = new ButtonGroup();
-////// Attributes Added By me
+	// attributes added here
 	private String UserBox = null;
 	private USER_TYPE UserType = USER_TYPE.Student; // default to Student
 
@@ -108,7 +108,7 @@ public class Login extends JDialog {
 					LoginName = UserName;
 			}
 			if (LoginName != null) {
-				this.hide();
+				this.setVisible(false);
 			}
 		} catch (Exception ee) {
 			;

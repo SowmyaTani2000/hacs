@@ -3,7 +3,7 @@ package hacs;
 import java.util.*;
 
 /**
- * Title: HACS Description: CSE870 Homework 3: Implementing Design Patterns
+ * Title:Description: CSE870 Homework 3: Implementing Design Patterns
  * Copyright: Copyright (c) 2002 Company: Department of Computer Science and
  * Engineering, Michigan State University
  * 
@@ -23,6 +23,7 @@ public class Solution {
 	boolean reported = false;
 
 	public Solution() {
+		System.out.println("Solution is implemented");
 	}
 
 	@Override
@@ -46,6 +47,14 @@ public class Solution {
 
 	int getGradeInt() {
 		return theGrade;
+	}
+	public String getTheAuthor(){
+		return this.theAuthor;
+	}
+
+	public void setTheAuthor(String s) {
+		this.theAuthor = s;
+		System.out.println("author set");
 	}
 
 	public void setReported(boolean reported) {

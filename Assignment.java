@@ -14,35 +14,26 @@ import java.text.DateFormat;
 
 public class Assignment {
 
-  protected String assnName;
-  protected String strAssignmentFilename;
-  protected Date dueDate=new Date();
-  protected String assSpec;
-  protected SolutionList theSolutionList=new SolutionList();
-  protected Solution SuggestSolution=new Solution();
-  boolean accepted=false;
+  public String AssName;
+  public Date DueDate =new Date();
+  public String AssSpec;
+  public SolutionList theSolutionList=new SolutionList();
+  public Solution SuggestSolution=new Solution();
 
-  public boolean isAccepted(){
-    return accepted;
-  }
   public Assignment() {
+
     System.out.println("Assignment is implemented");
   }
-  public void setAssignmnetName(String assignmentName){
-     this.assnName=assnName;
-  }
-  public void setDueDate(Date theDueDate){
-    this.dueDate = theDueDate;
-  }
 
-  public void setAssSpec(String theSpec){
-    this.assSpec = theSpec;
+  public void setDueDate(Date theDueDate) { this.DueDate = theDueDate; }
+  public void setAssSpec(String theSpec){ this.AssSpec = theSpec; }
+  public String getAssSpec(){
+    return this.AssSpec;
   }
-
   public boolean IsOverDue(){
     Date today;
     today = new Date();
-    if (today.after(this.dueDate)) {
+    if (today.after(this.DueDate)) {
       return true;
     }
     else {
@@ -54,47 +45,46 @@ public class Assignment {
     Solution mySolution = new Solution();
     return mySolution;
   }
-
-  ////add the theSolution to the Solutionlist
   public void addSolution(Solution theSolution) {
     theSolutionList.add(theSolution);
   }
+  public Solution getSuggestedSolution() { return SuggestSolution; }
 
   public void submitSolution(){
+
     System.out.println("submit the solution implemented");
   }
 
-  public void getSolutionList(){
+  public List<Integer> getSolutionList(){
+    List<Integer> list = new ArrayList<Integer>();
+    list.add(0);
     System.out.println("get the solution implemented");
+    return list;
   }
 
-  /* return the solution of the give name
-  */
   public Solution getSolution(String studentname) {
     SolutionIterator Iterator=getSolutionIterator();
     return (Solution)Iterator.next(studentname);
   }
 
-  public Solution getSugSolution(){
+  public Solution getSuggestSolution(){
+
     return SuggestSolution;
   }
 
-  public SolutionIterator getSolutionIterator() {
-    SolutionIterator theSolutionIterator=new SolutionIterator(theSolutionList);
-    return theSolutionIterator;
-  }
+  public SolutionIterator getSolutionIterator() { return new SolutionIterator(theSolutionList);}
+
 
   public String toString() {
-    return assnName;
+    return AssName;
   }
 
   public String getDueDateString() {
     DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
-    return  dateFormat.format(dueDate);
+    return  dateFormat.format(DueDate);
   }
 
   public void accept(NodeVisitor visitor) {
     visitor.visitAssignment(this);
-    accepted=true;
   }
 }

@@ -12,6 +12,8 @@ import java.awt.event.*;
  */
 
 public class SolutionGradingDlg extends JDialog {
+
+	private static final long serialVerUID=1L;
 	Solution theSolution;
 	JLabel jLabel1 = new JLabel();
 	JTextField tfGrad = new JTextField();
@@ -37,7 +39,7 @@ public class SolutionGradingDlg extends JDialog {
 		buttonOK.setBounds(new Rectangle(217, 67, 79, 29));
 		buttonOK.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonOK_actionPerformed(e);
+				buttonOKActionPerformed(e);
 			}
 		});
 		labelSolutionFileName.setBounds(new Rectangle(212, 34, 163, 18));
@@ -51,12 +53,12 @@ public class SolutionGradingDlg extends JDialog {
 		theSolution = solution;
 		tfGrad.setText("" + theSolution.getGradeInt());
 		labelSolutionFileName.setText(theSolution.SolutionFileName);
-		show();
+		setVisible(true);
 	}
 
-	void buttonOK_actionPerformed(ActionEvent e) {
+	void buttonOKActionPerformed(ActionEvent e) {
 		theSolution.theGrade = Integer.parseInt(tfGrad.getText());
-		hide();
+		setVisible(false);
 	}
 
 }

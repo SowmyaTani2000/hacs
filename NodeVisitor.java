@@ -13,6 +13,7 @@ abstract public class NodeVisitor {
 	}
 
 	public NodeVisitor(Object visitee) {
+		System.out.println("Node visitor is implemented with the object "+ visitee +"");
 	}
 
 	abstract public void visitFacade(Facade facade);

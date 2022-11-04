@@ -12,16 +12,16 @@ import java.util.*;
  */
 
 abstract public class Person {
-	int type = 0; // type=0 : student, type=1 instructor
-	String UserName;
-	ClassCourseList CourseList;
+	public int type = 0; // type=0 : student, type=1 instructor
+	public String UserName;
+	ClassCourseList courseList;
 	CourseMenu theCourseMenu;
 	Course CurrentCourse;
 	Assignment CurrentAssignment;
 
 	public Person() {
 
-		CourseList = new ClassCourseList();
+		courseList = new ClassCourseList();
 	}
 
 	abstract public CourseMenu CreateCourseMenu(Course theCourse, int theLevel);
@@ -31,7 +31,6 @@ abstract public class Person {
 	}
 
 	public void showViewButtons() {
-
 		theCourseMenu.showViewButtons();
 	}
 
@@ -46,7 +45,7 @@ abstract public class Person {
 
 	public void show() {
 
-		theCourseMenu.show();
+		theCourseMenu.setVisible(true);
 	}
 
 	public boolean ifLogout() {
@@ -57,23 +56,22 @@ abstract public class Person {
 	// show the assignment list
 	public boolean showMenu() {
 		// create a iterator for the assignment list
-//    Iterator theIter=new ListIterator(CurrentCourse.AssList );
-		Iterator theIter = CurrentCourse.assignmentList.iterator();
+        // Iterator theIter=new ListIterator(CurrentCourse.AssList );
+		Iterator<Assignment> theIter = CurrentCourse.assignmentList.iterator();
 		theCourseMenu.theCourse = CurrentCourse;
 		Assignment theAssignment;
 		while (theIter.hasNext()) {
-			theAssignment = (Assignment) theIter.next();
-			theCourseMenu.AssignmentCombox.addItem(theAssignment);
+			theAssignment = theIter.next();
+			theCourseMenu.assignmentCombox.addItem(theAssignment);
 		}
 		return false;
 	}
 
-	public ClassCourseList GetCourseList() {
-		return CourseList;
+	public ClassCourseList getCourseList() {
+		return courseList;
 	}
 
-	public void AddCourse(Course theCourse) {
-
-		CourseList.add(theCourse);
+	public void addCourse(Course theCourse) {
+		courseList.add(theCourse);
 	}
 }

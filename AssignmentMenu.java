@@ -17,7 +17,7 @@ import java.io.*;
 
 abstract public class AssignmentMenu extends JDialog {
   private static final long serialVerUID= 1L;
-  abstract void ShowMenu(Assignment ass,Person per);
+  abstract void showMenu(Assignment ass,Person per);
   public AssignmentMenu() {
     setModal(true);
     setSize(575,330);

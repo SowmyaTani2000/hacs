@@ -20,10 +20,12 @@ import java.io.*;
 public class SolutionMenu extends JDialog {
 
 	public SolutionMenu() {
+		System.out.println("Solution Menu is implemented!");
 	}
 
-	void ShowMenu(Solution theSolution) {
-		show();
+	void showMenu(Solution theSolution) {
+
+		setVisible(true);
 	}
 	
 }
